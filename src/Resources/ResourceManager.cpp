@@ -12,13 +12,29 @@
 #define STBI_ONLY_PNG
 #include "stb_image.h"
 
-ResourceManager::ResourceManager(const std::string& executablePath)
+
+
+ResourceManager::ShaderProgramMap ResourceManager::m_shaderPrograms;
+ResourceManager::TexturesMap ResourceManager::m_textures;
+ResourceManager::SpritesMap ResourceManager::m_sprites;
+ResourceManager::AnimatedSpritesMap ResourceManager::m_animatedSprites;
+std::string ResourceManager::m_path;
+
+void ResourceManager::setExecutablePath(const std::string& path)
 {
-	size_t found = executablePath.find_last_of("/\\");
-	m_path = executablePath.substr(0, found);
+	size_t found = path.find_last_of("/\\");
+	m_path = path.substr(0, found);
 }
 
-std::string ResourceManager::getFileString(const std::string& relativeFilePath) const
+void ResourceManager::unloadAllResources()
+{
+	m_shaderPrograms.clear();
+	m_textures.clear();
+	m_sprites.clear();
+	m_animatedSprites.clear();
+}
+
+std::string ResourceManager::getFileString(const std::string& relativeFilePath)
 {
 	std::ifstream f;
 	f.open(m_path + "/" + relativeFilePath.c_str(), std::ios::in | std::ios::binary);
@@ -182,10 +198,10 @@ std::shared_ptr<Renderer::AnimatedSprite> ResourceManager::loadAnimatedSprite(co
 
 	std::shared_ptr<Renderer::AnimatedSprite> newAnimatedSprite = m_animatedSprites.emplace(animatedSpriteName, 
 																							std::make_shared<Renderer::AnimatedSprite>(pTexture,
-																							subTextureName,
-																							pShader,
-																							glm::vec2(0.f, 0.f),
-																							glm::vec2(spriteWidth, spriteHeight))).first->second;
+																															subTextureName,
+																															pShader,
+																															glm::vec2(0.f, 0.f),
+																															glm::vec2(spriteWidth, spriteHeight))).first->second;
 	return newAnimatedSprite;
 }
 
