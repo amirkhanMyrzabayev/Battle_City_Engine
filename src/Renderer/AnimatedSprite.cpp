@@ -66,15 +66,13 @@ namespace Renderer
 		{
 			auto subTexture = m_pTexture->getSubTexture(m_pCurrentAnimationDuration->second[m_currentFrame].first);
 
-			const GLfloat textureCoords[] = {
-				//U									V
-				subTexture.leftBottomUV.x, subTexture.leftBottomUV.y,
-				subTexture.leftBottomUV.x, subTexture.rightTopUV.y,
-				subTexture.rightTopUV.x, subTexture.rightTopUV.y,
 
-				subTexture.rightTopUV.x, subTexture.rightTopUV.y,
-				subTexture.rightTopUV.x, subTexture.leftBottomUV.y,
-				subTexture.leftBottomUV.x, subTexture.leftBottomUV.y,
+			const GLfloat textureCoords[] = {
+									//U				V
+					subTexture.leftBottomUV.x, subTexture.leftBottomUV.y,
+					subTexture.leftBottomUV.x, subTexture.rightTopUV.y,
+					subTexture.rightTopUV.x, subTexture.rightTopUV.y,
+					subTexture.rightTopUV.x, subTexture.leftBottomUV.y,
 			};
 			glBindBuffer(GL_ARRAY_BUFFER, m_textureCoordsVBO);
 			glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(textureCoords), &textureCoords);
