@@ -3,7 +3,7 @@
 #include <glad/glad.h>
 #include <vector>
 
-namespace Renderer
+namespace RenderEngine
 {
 	struct VertexBufferLayoutElement
 	{
