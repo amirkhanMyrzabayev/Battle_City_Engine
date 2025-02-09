@@ -74,9 +74,7 @@ namespace Renderer
 					subTexture.rightTopUV.x, subTexture.rightTopUV.y,
 					subTexture.rightTopUV.x, subTexture.leftBottomUV.y,
 			};
-			glBindBuffer(GL_ARRAY_BUFFER, m_textureCoordsVBO);
-			glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(textureCoords), &textureCoords);
-			glBindBuffer(GL_ARRAY_BUFFER, 0);
+			m_textureCoordBuffer.update(&textureCoords, sizeof(textureCoords));
 			m_dirty = false;
 		}
 
