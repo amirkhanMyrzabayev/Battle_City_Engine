@@ -60,6 +60,7 @@ namespace Renderer
 			std::cerr << "ERROR::SHADER: Compile time error:\n" << infolog << std::endl;
 			return false;
 		}
+		return true;
 	}
 
 	ShaderProgram::~ShaderProgram()
