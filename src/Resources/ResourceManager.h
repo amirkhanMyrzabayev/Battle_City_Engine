@@ -74,6 +74,11 @@ public:
 														  const unsigned int subTextureHeight);
 	//-----------------------------------------------------------------------------------------
 
+	//JSON PARSING-------------------------------------------------------------------------------
+	static bool loadJSONResources(const std::string& JSONpath);
+
+	//-------------------------------------------------------------------------------------------
+
 private:
 	static std::string getFileString(const std::string& relativeFilePath);
 

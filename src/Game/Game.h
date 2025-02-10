@@ -10,7 +10,6 @@ class Tank;
 class Game {
 public:
 	Game(const glm::vec2& windowSize);
-
 	~Game();
 
 	void render();
@@ -21,11 +20,11 @@ public:
 private:
 	std::array<bool, 349> m_keys;
 
-
 	enum class EGameState {
 		Active,
 		Pause
 	};
+
 	glm::ivec2 m_windowSize;
 	EGameState m_eCurrentGameState;
 	std::unique_ptr<Tank> m_pTank;
