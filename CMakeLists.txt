@@ -32,8 +32,16 @@ add_executable(${PROJECT_NAME}
 
 	src/Game/Game.cpp 
 	src/Game/Game.h
-	src/Game/Tank.cpp 
-	src/Game/Tank.h
+	src/Game/Level.cpp
+	src/Game/Level.h
+
+
+	src/Game/GameObjects/IGameObject.cpp
+	src/Game/GameObjects/IGameObject.h
+	src/Game/GameObjects/Tank.cpp 
+	src/Game/GameObjects/Tank.h
+	src/Game/GameObjects/BrickWall.cpp 
+	src/Game/GameObjects/BrickWall.h
 )
 
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
@@ -53,6 +61,7 @@ target_link_libraries(${PROJECT_NAME} glad)
 include_directories(external/glm)
 
 include_directories(external/rapidjson/include)
+
 
 set_target_properties(${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin/)
 

@@ -16,8 +16,11 @@ namespace RenderEngine
 
 class ResourceManager {
 public:
+	//UTILS------------------------------------------------------------
 	static void setExecutablePath(const std::string& path);
 	static void unloadAllResources();
+
+	static const std::vector<std::vector<std::string>>& getLevels() { return m_levels; }
 
 	~ResourceManager() = delete;
 	ResourceManager() = delete;
@@ -25,7 +28,7 @@ public:
 	ResourceManager& operator=(const ResourceManager&) = delete;
 	ResourceManager& operator=(const ResourceManager&&) = delete;
 	ResourceManager(ResourceManager&&) = delete;
-
+	//-----------------------------------------------------------------
 
 	//SHADERS------------------------------------------------------------------------
 	static std::shared_ptr<RenderEngine::ShaderProgram> loadShaders(const std::string& shaderName, 
@@ -45,8 +48,6 @@ public:
 	static std::shared_ptr<RenderEngine::Sprite> loadSprite(const std::string& spriteName,
 												 const std::string& textureName,
 												 const std::string& shaderName,
-												 const unsigned int spriteWidth,
-												 const unsigned int spriteHeight,
 												 const std::string& subTextureName = "default");
 
 	static std::shared_ptr<RenderEngine::Sprite> getSprite(const std::string& spriteName);
@@ -57,8 +58,6 @@ public:
 	static std::shared_ptr<RenderEngine::AnimatedSprite> loadAnimatedSprite(const std::string& animatedSpriteName,
 																		 const std::string& textureName,
 																		 const std::string& shaderName,
-																		 const unsigned int spriteWidth,
-																		 const unsigned int spriteHeight,
 																		 const std::string& subTextureName = "default");
 
 	static std::shared_ptr<RenderEngine::AnimatedSprite> getAnimatedSprite(const std::string& animatedSpriteName);
@@ -79,6 +78,7 @@ public:
 
 	//-------------------------------------------------------------------------------------------
 
+
 private:
 	static std::string getFileString(const std::string& relativeFilePath);
 
@@ -93,6 +93,8 @@ private:
 
 	typedef std::map<const std::string, std::shared_ptr<RenderEngine::AnimatedSprite>> AnimatedSpritesMap;
 	static AnimatedSpritesMap m_animatedSprites;
+
+	static std::vector<std::vector<std::string>> m_levels;
 
 	static std::string m_path;
 };
