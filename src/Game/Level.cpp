@@ -2,6 +2,7 @@
 
 
 #include "GameObjects/BrickWall.h"
+#include "GameObjects/BetonWall.h"
 
 
 #include <iostream>
@@ -33,6 +34,16 @@ std::shared_ptr<IGameObject> createGameObjectFromDescription(const char descript
 		return std::make_shared<BrickWall>(BrickWall::EBrickWallType::TopRight, position, size, rotation);
 	case 'D':
 		return nullptr;
+	case '5':
+		return std::make_shared<BetonWall>(BetonWall::EBetonWallType::Right, position, size, rotation);
+	case '6':
+		return std::make_shared<BetonWall>(BetonWall::EBetonWallType::Bottom, position, size, rotation);
+	case '7':
+		return std::make_shared<BetonWall>(BetonWall::EBetonWallType::Left, position, size, rotation);
+	case '8':
+		return std::make_shared<BetonWall>(BetonWall::EBetonWallType::Top, position, size, rotation);
+	case '9':
+		return std::make_shared<BetonWall>(BetonWall::EBetonWallType::All , position, size, rotation);
 	default:
 		std::cerr << "Unknown GameObject description: " << description << std::endl;
 		break;
