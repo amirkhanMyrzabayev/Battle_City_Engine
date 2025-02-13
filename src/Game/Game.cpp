@@ -95,6 +95,10 @@ bool Game::init()
         return false;
     }
 
+
+    m_pLevel = std::make_unique<Level>(ResourceManager::getLevels()[1]);
+    m_windowSize.x = static_cast<int>(m_pLevel->getLevelWidth());
+    m_windowSize.y = static_cast<int>(m_pLevel->getLevelHeight());
     glm::mat4 projectionMatrix = glm::ortho(0.f, static_cast<float>(m_windowSize.x),
                                             0.f, static_cast<float>(m_windowSize.y), -100.f, 100.f);
 
@@ -106,8 +110,16 @@ bool Game::init()
 
     m_pTank = std::make_unique<Tank>(0.00000005f, glm::vec2(0.f, 0.f), glm::vec2(16.f, 16.f), 0.f);
 
-    m_pLevel = std::make_unique<Level>(ResourceManager::getLevels()[1]);
 
     return true;
 
+}
+
+size_t Game::getCurrentLevelWidth() const
+{
+    return m_pLevel->getLevelWidth();
+}
+size_t Game::getCurrentLevelHeight() const
+{
+    return m_pLevel->getLevelHeight();
 }
