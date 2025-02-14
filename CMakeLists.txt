@@ -26,6 +26,9 @@ add_executable(${PROJECT_NAME}
 	src/Renderer/SpriteAnimator.cpp 
 	src/Renderer/SpriteAnimator.h
 
+	src/System/Timer.cpp 
+	src/System/Timer.h
+
 	src/Resources/ResourceManager.cpp
 	src/Resources/ResourceManager.h
 	src/Resources/stb_image.h
