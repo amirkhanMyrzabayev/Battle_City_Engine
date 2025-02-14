@@ -97,7 +97,7 @@ int main(int argc, char **argv)
     
     {
         ResourceManager::setExecutablePath(argv[0]);
-        PhysicsEngine::init();
+        Physics::PhysicsEngine::init();
         if (!g_game->init())
         {
             return 1;
@@ -117,7 +117,7 @@ int main(int argc, char **argv)
             lastTime = currentTime;
 
             g_game->update(duration);
-            PhysicsEngine::update(duration);
+            Physics::PhysicsEngine::update(duration);
            
             /* Render here */
             RenderEngine::Renderer::clear();
