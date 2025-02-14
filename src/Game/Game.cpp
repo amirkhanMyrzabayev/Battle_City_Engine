@@ -19,8 +19,9 @@
 
 
 Game::Game(const glm::vec2& windowSize)
-    : m_eCurrentGameState(EGameState::Active),
-    m_windowSize(windowSize)
+    : m_windowSize(windowSize)
+    , m_eCurrentGameState(EGameState::Active)
+    
 {
 	m_keys.fill(false);
 }
@@ -97,7 +98,7 @@ bool Game::init()
     }
 
 
-    m_pLevel = std::make_shared<Level>(ResourceManager::getLevels()[1]);
+    m_pLevel = std::make_shared<Level>(ResourceManager::getLevels()[0]);
     m_windowSize.x = static_cast<int>(m_pLevel->getLevelWidth());
     m_windowSize.y = static_cast<int>(m_pLevel->getLevelHeight());
     glm::mat4 projectionMatrix = glm::ortho(0.f, static_cast<float>(m_windowSize.x),
@@ -110,7 +111,7 @@ bool Game::init()
     pSpriteShaderProgram->setMatrix4("projectionMat", projectionMatrix);
     
 
-    m_pTank = std::make_shared<Tank>(0.05f, m_pLevel->getPlayerRespawn_1(), glm::vec2(Level::BLOCK_SIZE, Level::BLOCK_SIZE), 0.f);
+    m_pTank = std::make_shared<Tank>(0.03f, m_pLevel->getPlayerRespawn_1(), glm::vec2(Level::BLOCK_SIZE, Level::BLOCK_SIZE), 0.f);
     Physics::PhysicsEngine::addDynamicGameObject(m_pTank);
 
     return true;
