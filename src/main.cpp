@@ -4,10 +4,12 @@
 #include "Game/Game.h"
 #include "Resources/ResourceManager.h"
 #include "Renderer/Renderer.h"
-
+#include "Physics/PhysicsEngine.h"
 
 #include <iostream>
 #include <chrono>
+
+
 
 
 
@@ -95,7 +97,7 @@ int main(int argc, char **argv)
     
     {
         ResourceManager::setExecutablePath(argv[0]);
-
+        PhysicsEngine::init();
         if (!g_game->init())
         {
             return 1;
@@ -115,6 +117,7 @@ int main(int argc, char **argv)
             lastTime = currentTime;
 
             g_game->update(duration);
+            PhysicsEngine::update(duration);
            
             /* Render here */
             RenderEngine::Renderer::clear();

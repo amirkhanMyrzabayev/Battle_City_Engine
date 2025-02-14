@@ -29,6 +29,9 @@ add_executable(${PROJECT_NAME}
 	src/System/Timer.cpp 
 	src/System/Timer.h
 
+	src/Physics/PhysicsEngine.cpp 
+	src/Physics/PhysicsEngine.h
+
 	src/Resources/ResourceManager.cpp
 	src/Resources/ResourceManager.h
 	src/Resources/stb_image.h
