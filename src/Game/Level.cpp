@@ -42,7 +42,7 @@ std::shared_ptr<IGameObject> createGameObjectFromDescription(const char descript
 	case '9':
 		return std::make_shared<BetonWall>(BetonWall::EBetonWallType::All , position, size, rotation, 0.f);
 	case 'A':
-		return std::make_shared<Water>(position, size, rotation, 0.f);
+		return std::make_shared<Water>(position, size, rotation, -1.f);
 	case 'B':
 		return std::make_shared<Trees>(position, size, rotation, 1.f);
 	case 'C':
