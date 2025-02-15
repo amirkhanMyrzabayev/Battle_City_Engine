@@ -97,15 +97,16 @@ namespace Physics {
 				const glm::vec2 currentCollider2_topRight_world = currentCollider2.topRight + position2;
 				const glm::vec2 currentCollider2_bottomLeft_world = currentCollider2.bottomLeft + position2;
 
-				if (currentCollider1_bottomLeft_world.x >= currentCollider2_topRight_world.x) return false;
+				if (currentCollider1_bottomLeft_world.x >= currentCollider2_topRight_world.x) continue;
 
-				if (currentCollider1_topRight_world.x <= currentCollider2_bottomLeft_world.x) return false;
+				if (currentCollider1_topRight_world.x <= currentCollider2_bottomLeft_world.x) continue;
 
-				if (currentCollider1_bottomLeft_world.y >= currentCollider2_topRight_world.y) return false;
+				if (currentCollider1_bottomLeft_world.y >= currentCollider2_topRight_world.y) continue;
 
-				if (currentCollider1_topRight_world.y <= currentCollider2_bottomLeft_world.y) return false;
+				if (currentCollider1_topRight_world.y <= currentCollider2_bottomLeft_world.y) continue;
+				return true;
 			}
 		}
-		return true;
+		return false;
 	}
 }
