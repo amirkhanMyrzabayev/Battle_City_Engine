@@ -20,6 +20,7 @@ public:
 	static void unloadAllResources();
 
 	static const std::vector<std::vector<std::string>>& getLevels() { return m_levels; }
+	static const std::vector<std::string>& getStartScreen() { return m_startScreen; }
 
 	~ResourceManager() = delete;
 	ResourceManager() = delete;
@@ -68,6 +69,7 @@ public:
 	//-------------------------------------------------------------------------------------------
 
 
+
 private:
 	static std::string getFileString(const std::string& relativeFilePath);
 
@@ -81,6 +83,7 @@ private:
 	static SpritesMap m_sprites;
 
 	static std::vector<std::vector<std::string>> m_levels;
+	static std::vector<std::string> m_startScreen;
 
 	static std::string m_path;
 };

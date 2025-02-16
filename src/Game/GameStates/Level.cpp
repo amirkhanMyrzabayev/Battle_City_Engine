@@ -1,13 +1,13 @@
 #include "Level.h"
 
 
-#include "GameObjects/BrickWall.h"
-#include "GameObjects/BetonWall.h"
-#include "GameObjects/Trees.h"
-#include "GameObjects/Ice.h"
-#include "GameObjects/Water.h"
-#include "GameObjects/Eagle.h"
-#include "GameObjects/Border.h"
+#include "../GameObjects/BrickWall.h"
+#include "../GameObjects/BetonWall.h"
+#include "../GameObjects/Trees.h"
+#include "../GameObjects/Ice.h"
+#include "../GameObjects/Water.h"
+#include "../GameObjects/Eagle.h"
+#include "../GameObjects/Border.h"
 
 #include <iostream>
 #include <algorithm>
@@ -160,13 +160,13 @@ void Level::update(const double delta)
 	}
 }
 
-size_t Level::getLevelWidth() const
+unsigned int Level::getStateWidth() const
 {
-	return (m_widthBlocks + 3) * BLOCK_SIZE;
+	return static_cast<unsigned int>((m_widthBlocks + 3) * BLOCK_SIZE);
 }
-size_t Level::getLevelHeight() const
+unsigned int Level::getStateHeight() const
 {
-	return (m_heightBlocks + 1) * BLOCK_SIZE;
+	return static_cast<unsigned int>((m_heightBlocks + 1) * BLOCK_SIZE);
 }
 
 
