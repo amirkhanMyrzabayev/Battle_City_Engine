@@ -142,7 +142,7 @@ Level::Level(const std::vector<std::string>& levelDesription)
 
 void Level::initPhysics()
 {
-	m_pTank = std::make_shared<Tank>(0.03f, getPlayerRespawn_1(), glm::vec2(Level::BLOCK_SIZE, Level::BLOCK_SIZE), 0.f);
+	m_pTank = std::make_shared<Tank>(Tank::ETankType::Player1Yellow_type1, 0.05, getPlayerRespawn_1(), glm::vec2(Level::BLOCK_SIZE, Level::BLOCK_SIZE), 0.f);
 	Physics::PhysicsEngine::addDynamicGameObject(m_pTank);
 }
 

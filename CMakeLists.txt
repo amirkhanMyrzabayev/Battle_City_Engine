@@ -5,6 +5,9 @@ set(PROJECT_NAME "BattleCity")
 project(${PROJECT_NAME})
 
 
+
+#set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT ${PROJECT_NAME}))
+
 add_executable(${PROJECT_NAME} 
 	src/main.cpp
 	src/Renderer/ShaderProgram.cpp
@@ -66,6 +69,7 @@ add_executable(${PROJECT_NAME}
 	src/Game/GameObjects/Bullet.cpp 
 	src/Game/GameObjects/Bullet.h
 )
+
 
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
 
