@@ -41,6 +41,9 @@ add_executable(${PROJECT_NAME}
 
 	src/Game/Game.cpp 
 	src/Game/Game.h
+	src/Game/AIComponent.cpp 
+	src/Game/AIComponent.h
+
 	src/Game/GameStates/IGameState.h
 	src/Game/GameStates/Level.cpp
 	src/Game/GameStates/Level.h
@@ -68,6 +71,7 @@ add_executable(${PROJECT_NAME}
 	src/Game/GameObjects/Border.h
 	src/Game/GameObjects/Bullet.cpp 
 	src/Game/GameObjects/Bullet.h
+
 )
 
 
