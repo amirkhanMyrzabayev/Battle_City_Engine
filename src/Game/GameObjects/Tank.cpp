@@ -64,6 +64,7 @@ Tank::Tank(const Tank::ETankType eType,
     );
 
     m_colliders.emplace_back(glm::vec2(0), m_size);
+    m_pCurrentBullet->setOwner(this);
 
     Physics::PhysicsEngine::addDynamicGameObject(m_pCurrentBullet);
 
@@ -110,11 +111,17 @@ void Tank::render() const
             m_pSprite_shield->render(m_position, m_size, m_rotation, m_layer + 0.1f, m_spriteAnimator_shield.getCurrentFrame());
         }
     }
-
+  
     if (m_pCurrentBullet->isActive())
     {
         m_pCurrentBullet->render();
     }
+}
+
+void Tank::destroy()
+{
+    m_objectType = EObjectType::Unknown;
+    m_pCurrentBullet->destroy();
 }
 
 void Tank::setOrientation(const EOrientation eOrientation)

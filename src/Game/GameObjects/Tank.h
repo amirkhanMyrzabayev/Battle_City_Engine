@@ -95,6 +95,7 @@ public:
     double getMaxVelocity() const { return m_maxVelocity; }
     void setVelocity(const double velocity) override;
     void fire();
+    void destroy() override;
 
 private:
     EOrientation m_eOrientation;

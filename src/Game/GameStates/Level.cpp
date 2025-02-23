@@ -187,6 +187,10 @@ void Level::render() const
 
 	for (const auto& currentTank : m_EnemyTanks)
 	{
+		if (currentTank->getObjectType() == IGameObject::EObjectType::Unknown)
+		{
+			continue;
+		}
 		currentTank->render();
 	}
 }
@@ -209,6 +213,10 @@ void Level::update(const double delta)
 	}
 	for (const auto& currentTank : m_EnemyTanks)
 	{
+		if (currentTank->getObjectType() == IGameObject::EObjectType::Unknown)
+		{
+			continue;
+		}
 		currentTank->update(delta);
 	}
 }

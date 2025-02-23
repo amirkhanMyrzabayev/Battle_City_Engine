@@ -113,3 +113,15 @@ void Bullet::fire(const glm::vec2& position, glm::vec2& direction) {
 	setVelocity(m_maxVeclocity);
 }
 
+void Bullet::destroy()
+{
+	explode();
+	m_objectType = EObjectType::Unknown;
+}
+
+void Bullet::explode() 
+{
+	setVelocity(0);
+	m_isExplosion = true;
+	m_explosionTimer.start(m_spriteAnimator_explosion.getTotalDuration());
+}

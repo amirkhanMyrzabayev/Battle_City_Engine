@@ -36,6 +36,8 @@ public:
 	void update(const double delta) override;
 	bool isActive() const { return m_isActive; }
 	void fire(const glm::vec2& position, glm::vec2& direction);
+	void destroy() override;
+	void explode() override;
 
 private:
 	glm::vec2 m_explosionSize;
