@@ -1,7 +1,7 @@
 # Battle City Engine
 it's a simple cross-platform 2D game made from scratch on C++ using OpenGL.
 
-<img src="res/AppRun.jpg" alt="Game View" width="200" height="200"/>
+<img src="res/AppRun.jpg" alt="Game View" width="300" height="300"/>
 
 ## Installation
 You'll need Cmake
